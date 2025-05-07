@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Palette",
+    "type": "enum",
+    "options": ["Midnight Citrus", "Electric Bloom", "Forest Neon"],
+    "id": "21eab267-9744-448a-a94c-a1893895df38"
+  }
+]
