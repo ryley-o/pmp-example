@@ -4,12 +4,12 @@ This project demonstrates how to use a palette enum feature field to select a pa
 
 ## Setup
 
-1. Create a new project in the PMP Creator Dashboard
+1. Create a new testnet project in the Creator Dashboard (https://create.artblocks.io/)
 2. Script type and version: `p5` and `1.9.0`
-3. Update Project script to the contents of the `project-script.js` file
+3. Update project script to the contents of the `project-script.js` file
 4. Upload feature-fields.json to the Project Features Fields section
 5. Update Features script to the contents of the `features-script.js` file
-6. Add a PMP Parameter with the following settings:
+6. Add a PostParams with the following settings:
    - Name: `Palette`
    - Type: `enum`
    - Options: `Midnight Citrus`, `Electric Bloom`, `Forest Neon`
@@ -17,17 +17,19 @@ This project demonstrates how to use a palette enum feature field to select a pa
 
 The tokens will now enable token owners to edit their tokens and modify their token's palette to align with their taste.
 
-## Editing a token
+## Mint a token to test editing the palette
 
-Eventually, this will be done through the Art Blocks Frontend.
+Minting a token is no different than any other project. Simply configure a set price minter, and mint a token via the Creator Dashboard on testnet.
 
-Until then, you can edit a token's palette directly on etherscan:
+Activate the project on testnet by clicking the `Activate` button in the Creator Dashboard.
 
-1. Navigate to etherscan, pmp contract at `0x00000000a78e278b2d2e2935faebe19ee9f1ff14`
-2. Click on the `Write Contract` button
-3. Connect your token owner wallet
-4. Click on the `configureTokenParams` field
-5. Enter the token's core contract address and token ID
-6. in pmpInputs, enter `[["Palette",1,"0x0000000000000000000000000000000000000000000000000000000000000000",false,""]]`, where `0x0000...0000` is either 0, 1, or 2, corresponding to the index of the palette in the `options` array in the PMP Configuration
-7. Click on the `Transact` button
-8. Return to the token in the generator to see the new palette (may take a few minutes to update)
+## Edit the palette
+
+Editing a token's PostParams is easily accomplished via the Art Blocks Website.
+
+1. Navigate to the token in the Artist Staging Site (https://artist-staging.artblocks.io) - you may search for your project after your project is set to active
+2. Connect your wallet that has appropriate permissions to edit the token (e.g. the token owner)
+3. Click on the `Customize Artwork` button
+4. Edit the `Palette` field, and preview your new selection
+5. Click on the `Submit` button
+6. Return to the token generator to see the new palette (may take a bit to update, especially on testnet)

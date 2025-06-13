@@ -1,4 +1,4 @@
-// Palettes are defined in the script, as well as in the PMP Configuration as an enum
+// Palettes are defined in the script, as well as in the PostParam Configuration as an enum
 let palettes = [
   {
     name: "Midnight Citrus",
@@ -19,18 +19,17 @@ function setup() {
   noStroke();
   let R = new Random();
 
-  // ---------- PMP-BASED COLOR PALETTE ----------
+  // ---------- POSTPARAM-BASED COLOR PALETTE ----------
   // Default - source palette from token hash
-  let palette = R.random_choice(palettes);
-  console.log("original token palette:", palette.name);
-  // Check for PMP override, assign if defined
-  // note: configured as the 0th Flex Dependency in Creator Dashboard
-  const pmp = tokenData.externalAssetDependencies[0];
-  if (pmp?.data?.["Palette"]) {
-    palette = palettes.find((p) => p.name === pmp.data["Palette"]);
-    console.log("pmp-configured token palette:", palette.name);
-  }
-  // ---------- END PMP-BASED COLOR PALETTE ----------
+  const hashBasedPalette = R.random_choice(palettes);
+  // Use PostParam palette if defined
+  // @dev PostParam is index 0 ext asset dependency on Creator Dashboard
+  const pp = tokenData.externalAssetDependencies[0];
+  // get injected PostParam "Palette", fallback to hash-based random choice
+  const palette =
+    palettes.find((p) => p.name === pp.data["Palette"]) || hashBasedPalette;
+
+  // ---------- END POSTPARAM-BASED COLOR PALETTE ----------
 
   for (let i = 0; i < 100; i++) {
     let x = R.random_dec() * width;

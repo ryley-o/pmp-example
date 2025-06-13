@@ -64,7 +64,7 @@ function calculateFeatures(tokenData) {
   let R = new Random();
   // Default - source palette from token hash
   let chosenPalette = R.random_choice(palettes);
-  // note: PMP will inject any configured overrides
+  // note: PostParam will inject any configured overrides
 
   return { Palette: chosenPalette };
 }
